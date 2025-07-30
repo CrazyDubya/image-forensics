@@ -222,20 +222,24 @@ class UnifiedForensicsClassifier:
             # Save at different qualities and measure differences
             qualities = [70, 80, 90, 95]
             differences = []
+            temp_files = []
             
-            for quality in qualities:
-                temp_path = f"temp_q{quality}.jpg"
-                cv2.imwrite(temp_path, image, [cv2.IMWRITE_JPEG_QUALITY, quality])
-                recompressed = cv2.imread(temp_path)
-                
-                if recompressed is not None:
-                    diff = np.mean(cv2.absdiff(image, recompressed))
-                    differences.append(diff)
-                    
-                try:
-                    Path(temp_path).unlink()
-                except:
-                    pass
+            try:
+                for quality in qualities:
+                    with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as temp_file:
+                        temp_files.append(temp_file.name)
+                        cv2.imwrite(temp_file.name, image, [cv2.IMWRITE_JPEG_QUALITY, quality])
+                        recompressed = cv2.imread(temp_file.name)
+                        
+                        if recompressed is not None:
+                            diff = np.mean(cv2.absdiff(image, recompressed))
+                            differences.append(diff)
+            finally:
+                for temp_file in temp_files:
+                    try:
+                        Path(temp_file).unlink()
+                    except:
+                        pass
                     
             if len(differences) > 1:
                 # Look for unusual quality response patterns
