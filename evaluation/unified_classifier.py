@@ -123,20 +123,21 @@ class UnifiedForensicsClassifier:
         
         # Simple ELA-like analysis
         compressed_path = str(Path(image_path).with_suffix('.tmp.jpg'))
-        cv2.imwrite(compressed_path, image, [cv2.IMWRITE_JPEG_QUALITY, 90])
-        compressed = cv2.imread(compressed_path)
-        
-        if compressed is not None:
-            diff = cv2.absdiff(image, compressed)
-            ela_score = np.mean(diff) / 255.0
-        else:
-            ela_score = 0.0
-            
-        # Clean up
         try:
-            Path(compressed_path).unlink()
-        except:
-            pass
+            cv2.imwrite(compressed_path, image, [cv2.IMWRITE_JPEG_QUALITY, 90])
+            compressed = cv2.imread(compressed_path)
+            
+            if compressed is not None:
+                diff = cv2.absdiff(image, compressed)
+                ela_score = np.mean(diff) / 255.0
+            else:
+                ela_score = 0.0
+        finally:
+            # Ensure the temporary file is always deleted
+            try:
+                Path(compressed_path).unlink()
+            except:
+                pass
             
         # Simple noise analysis (NOI-like)
         blurred = cv2.GaussianBlur(gray, (5, 5), 1.0)
