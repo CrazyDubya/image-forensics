@@ -1,0 +1,423 @@
+{
+  "assessment_summary": {
+    "total_algorithms": 16,
+    "ai_capable_algorithms": 4,
+    "traditional_capable_algorithms": 11,
+    "average_ai_detection_score": 0.17,
+    "average_traditional_detection_score": 0.69
+  },
+  "algorithm_details": [
+    {
+      "name": "ADQ1",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "Aligned Double Quantization - JPEG compression detection",
+      "ai_detection_capability": {
+        "score": 0.1,
+        "reasoning": "Traditional tampering detection - limited AI detection capability",
+        "limitations": [
+          "Designed for splicing/copy-move detection",
+          "AI generation artifacts are different"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.8,
+        "reasoning": "Excellent for detecting JPEG double compression from splicing",
+        "strengths": [
+          "JPEG compression detection",
+          "Splicing localization"
+        ]
+      },
+      "effectiveness_score": 0.0
+    },
+    {
+      "name": "ADQ2",
+      "has_analyze": true,
+      "has_readme": true,
+      "has_demo": true,
+      "algorithm_type": "Aligned Double Quantization - JPEG compression detection",
+      "ai_detection_capability": {
+        "score": 0.1,
+        "reasoning": "Traditional tampering detection - limited AI detection capability",
+        "limitations": [
+          "Designed for splicing/copy-move detection",
+          "AI generation artifacts are different"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.8,
+        "reasoning": "Excellent for detecting JPEG double compression from splicing",
+        "strengths": [
+          "JPEG compression detection",
+          "Splicing localization"
+        ]
+      },
+      "effectiveness_score": 0.0,
+      "description": "******************************************************************************* * Notice by Markos Zampoglou, ITI-CERTH, 2016: This is a redistribution of    * * the code provided by the IAPP group in...",
+      "citation": "Citation information available in README"
+    },
+    {
+      "name": "ADQ3",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "Aligned Double Quantization - JPEG compression detection",
+      "ai_detection_capability": {
+        "score": 0.1,
+        "reasoning": "Traditional tampering detection - limited AI detection capability",
+        "limitations": [
+          "Designed for splicing/copy-move detection",
+          "AI generation artifacts are different"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.8,
+        "reasoning": "Excellent for detecting JPEG double compression from splicing",
+        "strengths": [
+          "JPEG compression detection",
+          "Splicing localization"
+        ]
+      },
+      "effectiveness_score": 0.0
+    },
+    {
+      "name": "BLK",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "Block Analysis - JPEG blocking artifact detection",
+      "ai_detection_capability": {
+        "score": 0.1,
+        "reasoning": "Traditional tampering detection - limited AI detection capability",
+        "limitations": [
+          "Designed for splicing/copy-move detection",
+          "AI generation artifacts are different"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.6,
+        "reasoning": "Moderate effectiveness for specific tampering types",
+        "strengths": [
+          "Specialized detection method"
+        ]
+      },
+      "effectiveness_score": 0.0
+    },
+    {
+      "name": "CAGI",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "Grid Inconsistency - JPEG block grid analysis",
+      "ai_detection_capability": {
+        "score": 0.1,
+        "reasoning": "Traditional tampering detection - limited AI detection capability",
+        "limitations": [
+          "Designed for splicing/copy-move detection",
+          "AI generation artifacts are different"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.6,
+        "reasoning": "Moderate effectiveness for specific tampering types",
+        "strengths": [
+          "Specialized detection method"
+        ]
+      },
+      "effectiveness_score": 0.0
+    },
+    {
+      "name": "CFA1",
+      "has_analyze": true,
+      "has_readme": true,
+      "has_demo": true,
+      "algorithm_type": "Color Filter Array - Demosaicing inconsistency detection",
+      "ai_detection_capability": {
+        "score": 0.2,
+        "reasoning": "CFA analysis might detect some AI generation artifacts in demosaicing patterns",
+        "limitations": [
+          "AI generators may simulate proper CFA patterns",
+          "Limited to specific AI generation methods"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.7,
+        "reasoning": "Good for detecting interpolation inconsistencies",
+        "strengths": [
+          "Demosaicing artifact detection",
+          "Splicing detection"
+        ]
+      },
+      "effectiveness_score": 0.0,
+      "description": "******************************************************************************* * Notice by Markos Zampoglou, ITI-CERTH, 2016: This is a redistribution of    * * the code provided by the IAPP group in...",
+      "citation": "Citation information available in README"
+    },
+    {
+      "name": "CFA2",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "Color Filter Array - Demosaicing inconsistency detection",
+      "ai_detection_capability": {
+        "score": 0.2,
+        "reasoning": "CFA analysis might detect some AI generation artifacts in demosaicing patterns",
+        "limitations": [
+          "AI generators may simulate proper CFA patterns",
+          "Limited to specific AI generation methods"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.7,
+        "reasoning": "Good for detecting interpolation inconsistencies",
+        "strengths": [
+          "Demosaicing artifact detection",
+          "Splicing detection"
+        ]
+      },
+      "effectiveness_score": 0.0
+    },
+    {
+      "name": "CFA3",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "Color Filter Array - Demosaicing inconsistency detection",
+      "ai_detection_capability": {
+        "score": 0.2,
+        "reasoning": "CFA analysis might detect some AI generation artifacts in demosaicing patterns",
+        "limitations": [
+          "AI generators may simulate proper CFA patterns",
+          "Limited to specific AI generation methods"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.7,
+        "reasoning": "Good for detecting interpolation inconsistencies",
+        "strengths": [
+          "Demosaicing artifact detection",
+          "Splicing detection"
+        ]
+      },
+      "effectiveness_score": 0.0
+    },
+    {
+      "name": "DCT",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "DCT Coefficient Analysis - Frequency domain analysis",
+      "ai_detection_capability": {
+        "score": 0.1,
+        "reasoning": "Traditional tampering detection - limited AI detection capability",
+        "limitations": [
+          "Designed for splicing/copy-move detection",
+          "AI generation artifacts are different"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.6,
+        "reasoning": "Moderate effectiveness for specific tampering types",
+        "strengths": [
+          "Specialized detection method"
+        ]
+      },
+      "effectiveness_score": 0.0
+    },
+    {
+      "name": "ELA",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "Error Level Analysis - General tampering detection",
+      "ai_detection_capability": {
+        "score": 0.1,
+        "reasoning": "Error Level Analysis has limited effectiveness against modern AI generation",
+        "limitations": [
+          "AI generators can produce consistent compression",
+          "Not designed for AI detection"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.6,
+        "reasoning": "Popular but limited effectiveness against sophisticated tampering",
+        "strengths": [
+          "Easy to understand",
+          "Fast computation"
+        ]
+      },
+      "effectiveness_score": 0.0
+    },
+    {
+      "name": "GHO",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "JPEG Ghosts - Compression history detection",
+      "ai_detection_capability": {
+        "score": 0.1,
+        "reasoning": "Traditional tampering detection - limited AI detection capability",
+        "limitations": [
+          "Designed for splicing/copy-move detection",
+          "AI generation artifacts are different"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.6,
+        "reasoning": "Moderate effectiveness for specific tampering types",
+        "strengths": [
+          "Specialized detection method"
+        ]
+      },
+      "effectiveness_score": 0.0
+    },
+    {
+      "name": "NADQ",
+      "has_analyze": true,
+      "has_readme": true,
+      "has_demo": true,
+      "algorithm_type": "Non-Aligned Double Quantization - JPEG compression detection",
+      "ai_detection_capability": {
+        "score": 0.1,
+        "reasoning": "Traditional tampering detection - limited AI detection capability",
+        "limitations": [
+          "Designed for splicing/copy-move detection",
+          "AI generation artifacts are different"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.8,
+        "reasoning": "Excellent for detecting JPEG double compression from splicing",
+        "strengths": [
+          "JPEG compression detection",
+          "Splicing localization"
+        ]
+      },
+      "effectiveness_score": 0.0,
+      "description": "******************************************************************************* * Notice by Markos Zampoglou, ITI-CERTH, 2016: This is a redistribution of    * * the code provided by the IAPP group in...",
+      "citation": "Citation information available in README"
+    },
+    {
+      "name": "NOI1",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "Noise Analysis - Statistical noise inconsistency detection",
+      "ai_detection_capability": {
+        "score": 0.3,
+        "reasoning": "Noise analysis might detect AI artifacts but not specifically designed for it",
+        "limitations": [
+          "Not trained on AI-generated samples",
+          "May miss sophisticated AI techniques"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.7,
+        "reasoning": "Good for detecting noise inconsistencies from tampering",
+        "strengths": [
+          "Statistical noise analysis",
+          "Robust detection"
+        ]
+      },
+      "effectiveness_score": 0.0
+    },
+    {
+      "name": "NOI2",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "Noise Analysis - Statistical noise inconsistency detection",
+      "ai_detection_capability": {
+        "score": 0.3,
+        "reasoning": "Noise analysis might detect AI artifacts but not specifically designed for it",
+        "limitations": [
+          "Not trained on AI-generated samples",
+          "May miss sophisticated AI techniques"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.7,
+        "reasoning": "Good for detecting noise inconsistencies from tampering",
+        "strengths": [
+          "Statistical noise analysis",
+          "Robust detection"
+        ]
+      },
+      "effectiveness_score": 0.0
+    },
+    {
+      "name": "NOI4",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "Noise Analysis - Statistical noise inconsistency detection",
+      "ai_detection_capability": {
+        "score": 0.3,
+        "reasoning": "Noise analysis might detect AI artifacts but not specifically designed for it",
+        "limitations": [
+          "Not trained on AI-generated samples",
+          "May miss sophisticated AI techniques"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.7,
+        "reasoning": "Good for detecting noise inconsistencies from tampering",
+        "strengths": [
+          "Statistical noise analysis",
+          "Robust detection"
+        ]
+      },
+      "effectiveness_score": 0.0
+    },
+    {
+      "name": "NOI5",
+      "has_analyze": true,
+      "has_readme": false,
+      "has_demo": true,
+      "algorithm_type": "Noise Analysis - Statistical noise inconsistency detection",
+      "ai_detection_capability": {
+        "score": 0.3,
+        "reasoning": "Noise analysis might detect AI artifacts but not specifically designed for it",
+        "limitations": [
+          "Not trained on AI-generated samples",
+          "May miss sophisticated AI techniques"
+        ]
+      },
+      "traditional_tampering_capability": {
+        "score": 0.7,
+        "reasoning": "Good for detecting noise inconsistencies from tampering",
+        "strengths": [
+          "Statistical noise analysis",
+          "Robust detection"
+        ]
+      },
+      "effectiveness_score": 0.0
+    }
+  ],
+  "recommendations": [
+    "\u26a0\ufe0f  CRITICAL: Current algorithms have very limited AI-generated image detection capability. New algorithms specifically designed for AI detection are urgently needed.",
+    "\u2705 GOOD: Traditional tampering detection capabilities are adequate for conventional threats.",
+    "\ud83d\udd2c Implement modern AI detection algorithms (e.g., CNN-based classifiers)",
+    "\ud83d\udcca Add ensemble methods combining multiple detection approaches",
+    "\ud83c\udfaf Focus on GAN-generated image detection capabilities",
+    "\ud83d\udd04 Update evaluation framework for contemporary threats",
+    "\ud83d\udcc8 Add confidence scoring and uncertainty quantification"
+  ],
+  "enhancement_priorities": {
+    "high_priority": [
+      "Add GAN detection algorithm",
+      "Implement deep learning-based AI classifier",
+      "Create unified detection interface for AI/edited/original classification"
+    ],
+    "medium_priority": [
+      "Enhance evaluation framework with modern metrics",
+      "Add ensemble detection methods",
+      "Implement confidence scoring system"
+    ],
+    "low_priority": [
+      "Optimize existing algorithm performance",
+      "Add more traditional tampering detection methods",
+      "Improve visualization of detection results"
+    ]
+  }
+}

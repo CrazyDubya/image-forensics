@@ -1,3 +1,5 @@
+**UPDATE (07/2024):** *🆕 **MAJOR ENHANCEMENT**: Added comprehensive AI-generated image detection capabilities! The toolbox now includes Python-based AI detection algorithms, unified classification system (AI-generated/Edited/Original), and effectiveness assessment tools. See `evaluation/README_ENHANCED.md` for details.*
+
 **UPDATE (01/2019):** *We have now added a new Noise-based algorithm in the MATLAB toolbox (NOI5). Make sure to properly cite the original paper if you use it (see the corresponding README file).*
 
 **UPDATE (07/2018):** *We have now added our novel CAGI tampering detection algorithm in both Matlab and Java. It is based on JPEG block grid inconsistencies, but also features significant post-processing to improve result quality. Feel free to try it out! You will find citation information in the README file in the coresponding Matlab folder.*
@@ -5,7 +7,36 @@
 
 # image-forensics
 
-This is an integrated framework for image forensic analysis. It includes a Java webservice, including seven splicing detection algorithm implementations, plus additional forensic tools, located in the subdirectory [java_service] and a Matlab algorithm evaluation framework, including implementations of a large number of splicing detection algorithms, located in the subdirectory [matlab_toolbox]. An demo providing online implementations of many of these algorithms can be found here: [Online demo].
+This is an integrated framework for image forensic analysis, **now enhanced with AI-generated content detection capabilities**. The framework includes:
+
+- **🧠 AI Detection Module**: New Python-based algorithms for detecting AI-generated images (GANs, diffusion models, etc.)
+- **🔬 Traditional Tampering Detection**: Existing MATLAB implementations of splicing detection algorithms
+- **🎯 Unified Classification**: Comprehensive system classifying images as AI-generated, edited, or original
+- **📊 Effectiveness Assessment**: Tools to evaluate algorithm performance and identify enhancement needs
+
+## Quick Start with Enhanced Features
+
+```bash
+# Install basic requirements
+pip install numpy
+
+# Run effectiveness assessment
+cd evaluation
+python3 assess_effectiveness.py
+
+# Test AI detection on an image
+python3 simple_ai_demo.py path/to/image.jpg
+
+# For full functionality, install additional dependencies
+pip install opencv-python pillow
+python3 unified_classifier.py path/to/image.jpg --verbose
+```
+
+See **[`evaluation/README_ENHANCED.md`](evaluation/README_ENHANCED.md)** for comprehensive documentation of the new AI detection capabilities.
+
+## Original Framework
+
+The original framework includes a Java webservice with seven splicing detection algorithm implementations, plus additional forensic tools (located in [java_service]) and a Matlab algorithm evaluation framework with implementations of a large number of splicing detection algorithms (located in [matlab_toolbox]). An online demo providing implementations of many of these algorithms can be found here: [Online demo].
 
 ## Citations
 

@@ -1,0 +1,14 @@
+# Enhanced Image Forensics Requirements
+
+# Core requirements for basic functionality
+numpy>=1.20.0
+
+# Computer vision requirements for full AI detection capabilities  
+# (optional - basic functionality works without these)
+opencv-python>=4.5.0
+Pillow>=8.0.0
+
+# Additional optional dependencies for extended functionality
+# matplotlib>=3.3.0  # For visualization
+# scipy>=1.7.0       # For advanced statistical analysis
+# scikit-learn>=0.24.0  # For machine learning enhancements
