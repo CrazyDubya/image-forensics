@@ -481,6 +481,122 @@ class UnifiedForensicsClassifier:
         algorithms.extend(['Metadata_Analysis', 'Statistical_Analysis'])
         
         return algorithms
+    
+    def _display_composite_score_results(self, result: Dict):
+        """Display results with prominent composite scoring."""
+        final = result['final_classification']
+        
+        # Get confidence level info for visual indicators
+        confidence = final.get('confidence', 0.0)
+        if confidence >= 0.9:
+            conf_level = "VERY HIGH"
+            conf_indicator = "🟢"
+            conf_desc = "Extremely confident"
+        elif confidence >= 0.7:
+            conf_level = "HIGH"
+            conf_indicator = "🟡"
+            conf_desc = "High confidence"
+        elif confidence >= 0.5:
+            conf_level = "MODERATE"
+            conf_indicator = "🟠"
+            conf_desc = "Moderate confidence"
+        elif confidence >= 0.3:
+            conf_level = "LOW"
+            conf_indicator = "🔴"
+            conf_desc = "Low confidence"
+        else:
+            conf_level = "VERY LOW"
+            conf_indicator = "⚠️"
+            conf_desc = "Very low confidence"
+        
+        # Create prominent display box
+        print("\n" + "="*80)
+        print("                          COMPOSITE FORENSICS ANALYSIS")
+        print("="*80)
+        
+        # Main classification result
+        category = final.get('category', 'UNKNOWN')
+        if category == 'AI_GENERATED':
+            category_symbol = "🤖"
+        elif category == 'EDITED':
+            category_symbol = "✂️"
+        else:
+            category_symbol = "📸"
+            
+        print(f"\n{category_symbol} CLASSIFICATION: {category}")
+        print(f"{conf_indicator} CONFIDENCE: {confidence:.1%} ({conf_level}) - {conf_desc}")
+        
+        # Composite score breakdown
+        print(f"\n{'='*40} COMPOSITE SCORE BREAKDOWN {'='*39}")
+        
+        raw_scores = final.get('raw_scores', {})
+        ai_score = raw_scores.get('ai_detection', 0.0)
+        trad_score = raw_scores.get('traditional_tampering', 0.0)
+        meta_score = raw_scores.get('metadata_analysis', 0.0)
+        stat_score = raw_scores.get('statistical_analysis', 0.0)
+        
+        weights = self.detection_weights
+        
+        print(f"  AI Detection:        {ai_score:.3f} × {weights['ai_detection']:.1f} = {ai_score * weights['ai_detection']:.3f}")
+        print(f"  Traditional Tamper:  {trad_score:.3f} × {weights['traditional_tampering']:.1f} = {trad_score * weights['traditional_tampering']:.3f}")
+        print(f"  Metadata Analysis:   {meta_score:.3f} × {weights['metadata_analysis']:.1f} = {meta_score * weights['metadata_analysis']:.3f}")
+        print(f"  Statistical:         {stat_score:.3f} × {weights['statistical_analysis']:.1f} = {stat_score * weights['statistical_analysis']:.3f}")
+        print(f"  {'-'*75}")
+        
+        # Calculate composite score
+        composite = (ai_score * weights['ai_detection'] + 
+                    trad_score * weights['traditional_tampering'] + 
+                    meta_score * weights['metadata_analysis'] + 
+                    stat_score * weights['statistical_analysis'])
+        
+        print(f"  COMPOSITE SCORE:     {composite:.3f}")
+        
+        # Evidence strength indicators
+        print(f"\n{'='*40} EVIDENCE STRENGTH {'='*41}")
+        evidence_scores = final.get('evidence_scores', {})
+        
+        for evidence_type, score in evidence_scores.items():
+            if score >= 0.7:
+                strength = "STRONG   🔴"
+            elif score >= 0.5:
+                strength = "MODERATE 🟡"
+            elif score >= 0.3:
+                strength = "WEAK     🟠"
+            else:
+                strength = "MINIMAL  🟢"
+            
+            print(f"  {evidence_type.replace('_', ' ').title():<20}: {score:.3f} ({strength})")
+        
+        # Reasoning
+        reasoning = final.get('reasoning', 'No reasoning provided')
+        print(f"\n{'='*40} ANALYSIS REASONING {'='*40}")
+        print(f"  {reasoning}")
+        
+        print("="*80)
+        
+    def _display_detailed_analysis(self, result: Dict):
+        """Display detailed analysis information."""
+        print(f"\n{'='*40} DETAILED ANALYSIS {'='*41}")
+        
+        for analysis_type, details in result['detailed_analysis'].items():
+            print(f"\n📋 {analysis_type.upper().replace('_', ' ')}:")
+            if isinstance(details, dict):
+                for key, value in details.items():
+                    if isinstance(value, (int, float)):
+                        print(f"    {key}: {value:.3f}")
+                    else:
+                        print(f"    {key}: {value}")
+            else:
+                print(f"    {details}")
+        
+        # Processing notes
+        processing_notes = result.get('processing_notes', {})
+        if processing_notes:
+            print(f"\n🔧 PROCESSING NOTES:")
+            for key, value in processing_notes.items():
+                print(f"    {key}: {value}")
+        
+        print("="*80)
 
 
 def main():
@@ -500,19 +616,12 @@ def main():
         result = classifier.classify_image(args.image_path, args.use_matlab)
         
         final = result['final_classification']
-        print(f"\n🎯 FINAL CLASSIFICATION:")
-        print(f"   Category: {final['category']}")
-        print(f"   Confidence: {final['confidence']:.2f}")
-        print(f"   Reasoning: {final['reasoning']}")
+        
+        # Create prominent composite score display
+        classifier._display_composite_score_results(result)
         
         if args.verbose:
-            print(f"\n📊 EVIDENCE SCORES:")
-            for evidence_type, score in final['evidence_scores'].items():
-                print(f"   {evidence_type}: {score:.2f}")
-                
-            print(f"\n🔍 DETAILED ANALYSIS:")
-            for analysis_type, details in result['detailed_analysis'].items():
-                print(f"   {analysis_type}: {details}")
+            classifier._display_detailed_analysis(result)
                 
         if args.output:
             with open(args.output, 'w') as f:
