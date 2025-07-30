@@ -1,0 +1,9 @@
+{
+  "image_path": "matlab_toolbox/Algorithms/NOI5/demo.tif",
+  "category": "LIKELY_ORIGINAL",
+  "confidence": 0.0,
+  "file_size": 2654400,
+  "file_extension": ".tif",
+  "reasoning": "No strong indicators found",
+  "note": "This is a simplified demo. Install opencv-python and pillow for full AI detection capabilities."
+}
